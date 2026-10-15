@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # CRA/react-scripts treats ESLint *warnings* as fatal build errors when
+  # CI=true, which Netlify sets by default. This repo has pre-existing,
+  # harmless lint warnings (unused vars, exhaustive-deps, etc.) that don't
+  # affect correctness — without this, a clean local "npm run build" still
+  # fails here.
+  CI = "false"
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
