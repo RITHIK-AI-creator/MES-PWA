@@ -1,0 +1,1 @@
+export const SUCCESS_GREEN="#0a9b00"

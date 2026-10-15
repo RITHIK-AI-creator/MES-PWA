@@ -1,0 +1,201 @@
+{
+  "login": {
+    "title": "OneScan",
+    "userId": "User Id",
+    "password": "Password",
+    "authenticating": "AUTHENTICATING...",
+    "submit": "LOGIN"
+  },
+  "header": {
+    "logout": "Logout",
+    "signedInAs": "Signed in as",
+    "guest": "Guest",
+    "confirmLogout": "Are you sure you want to logout?"
+  },
+  "common": {
+    "language": "Language",
+    "success": "Success",
+    "error": "Error",
+    "yes": "Yes",
+    "no": "No",
+    "page": "Page "
+  },
+  "track": {
+    "reset": "Reset",
+    "submit": "Submit",
+    "moveIn": "Move In",
+    "trackIn": "Track In",
+    "trackOut": "Track Out",
+    "moveOut": "Move Out",
+    "enterLotNumber": "Enter Lot Number *",
+    "employeeId": "Employee ID",
+    "equipmentName": "Equipment Name",
+    "selectEquipment": "Select Equipment *",
+    "status": "Status:",
+    "path": "Path:",
+    "product": "Product:",
+    "priority": "Priority:",
+    "workflow": "Workflow:",
+    "qty1": "Qty1:",
+    "qty": "Qty:",
+    "currentStep": "Current Step:",
+    "nextStep": "Next Step:",
+    "footerText": "Please complete each step to move forward",
+    "scannedLot": "Scanned Lot",
+    "qtyLabel": "QTY",
+    "MfgOrder":"Mfg Order",
+    "Priority":"Priority",
+    "step":"Step"
+  },
+  "messages": {
+    "missingCredentials": "Please enter username and password",
+    "accessDenied": "Access Denied: Unrecognized User.",
+    "serverError": "Server error occurred during login.",
+    "connectionFailed": "Connection failed: Check VPN or network.",
+    "fetchLotFailed": "Failed to fetch lot info.",
+    "selectEquipment": "Please select an Equipment.",
+    "actionFailed": "{{action}} failed.",
+    "actionFailedRetry": "{{action}} failed. Please try again.",
+    "actionSuccess": "Lot '{{lot}}' {{action}} completed successfully."
+  },
+  "backend": {
+    "Access Denied: Unrecognized User.": "Access Denied: Unrecognized User.",
+    "Invalid Password": "Invalid Password",
+    "Lot Not Found": "Lot Not Found",
+    "Equipment Not Found": "Equipment Not Found",
+    "Transaction Not Allowed": "Transaction Not Allowed",
+    "Lot is on hold": "Lot is on hold",
+    "Equipment is down": "Equipment is down",
+    "Invalid Employee ID": "Invalid Employee ID"
+  },
+  "cgpw": {
+    "title": "CGPW Transaction",
+    "receivableProduct": "Receivable Product",
+    "selectProduct": "-- Select Product --",
+    "toWorkflow": "To Workflow",
+    "selectWorkflow": "-- Select Workflow --",
+    "toStep": "To Step",
+    "selectStep": "-- Select Step --",
+    "fetchProductsFailed": "Failed to fetch Receivable Products.",
+    "fetchWorkflowsFailed": "Failed to fetch workflows for the selected product.",
+    "fetchStepsFailed": "Failed to fetch steps for the selected workflow.",
+    "waferLevelError": "Lot Number '{{lot}}' is in Wafer level.",
+    "lotInactive": "'{{lot}}' is inactive.",
+    "fetchLotFailed": "Failed to fetch lot info.",
+    "scanLotFirst": "Please scan a Lot first.",
+    "fillRequired": "Please fill in all required fields.",
+    "transactionFailed": "CGPW transaction failed.",
+    "transactionSuccess": "CGPW transaction completed successfully for Lot {{lot}}.",
+    "transactionFailedRetry": "CGPW transaction failed. Please try again."
+  },
+  "recipeSetup": {
+    "equipment": "Equipment",
+    "mask": "Mask",
+    "selectMask": "-- Select Mask --",
+    "recipe": "Recipe",
+    "selectRecipe": "-- Select Recipe --",
+    "close": "Close",
+    "saving": "Saving...",
+    "save": "Save",
+    "setupFailed": "Recipe Setup failed.",
+    "title": "Equipment SetUp"
+  },
+  "eProcedure": {
+    "title": "E-Procedure Checklist",
+    "noChecklists": "No checklists available for this step.",
+    "completeRemaining": "Please complete the remaining items.",
+    "close": "Close",
+    "completeTask": "Complete Task",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "saveFailed": "Failed to save E-Procedure. Please try again.",
+    "eprocTitle": "EProcedure",
+    "submitBtn": "Submit",
+    "noData": "No data available"
+  },
+  "rejectLot": {
+    "title": "Reject Lot",
+    "quantity": "Quantity:",
+    "lossReason": "Loss Reason:",
+    "selectLossReason": "-- Select Loss Reason --",
+    "rejectQuantity": "Reject Quantity:",
+    "comment": "Comment:",
+    "close": "Close",
+    "rejecting": "Rejecting...",
+    "submitReject": "Submit Reject",
+    "historyNotFound": "Reject Lot history not found.",
+    "fetchHistoryFailed": "Failed to fetch reject history.",
+    "invalidQuantity": "Please enter valid quantities for the reject.",
+    "provideComment": "Please provide a comment for the reject.",
+    "transactionFailed": "Reject transaction failed. Please try again.",
+    "processSuccess": "Reject Process successfully completed.",
+    "lotRejects": "Lot Rejects",
+    "maxRejectQty": "Max Reject Qty",
+    "lossReasonCol": "Loss Reason",
+    "descriptionCol": "Description",
+    "rejectQtyCol": "Reject Qty",
+    "rejectQty": "Reject Qty"
+  },
+  "nav": {
+    "WIP Main": "WIP Main",
+    "Hold": "Hold",
+    "Release": "Release",
+    "Split": "Split",
+    "Combine": "Combine",
+    "Lot Combine": "Lot Combine",
+    "Lot Combine by Wafers": "Lot Combine by Wafers",
+    "Move to Non-Std": "Move to Non-Std",
+    "Set Equipment Status": "Set Equipment Status",
+    "CGPW": "CGPW",
+    "SPC Charts": "SPC Charts",
+    "Reject": "Reject",
+    "Equipment Materials Setup": "Equipment Materials Setup",
+    "WIP Disassociate": "WIP Disassociate",
+    "WIP Associate": "WIP Associate",
+    "Un-Terminate": "Un-Terminate",
+    "Menu": "Menu",
+    "Lot Bonus": "Lot Bonus",
+    "Lot Reject": "Lot Reject",
+    "Component Remove": "Component Remove"
+  },
+  "combineLot": {
+    "newLotId": "New Lot ID",
+    "lots": "LOTS",
+    "lot": "Lot",
+    "qty1": "Qty1",
+    "qty2": "Qty 2",
+    "noSourceLots": "No source lots added. Scan a lot above to add."
+  },
+  "splitLot": {
+    "splitQty": "Split QTY",
+    "enterQty": "Enter Qty",
+    "remainingQty": "Remaining QTY"
+  },
+  "releaseLot": {
+    "selectReleaseReason": "Select Release Reason *"
+  },
+  "holdLot": {
+    "selectHoldReason": "Select Hold Reason *"
+  },
+  "moveNonStd": {
+    "selectWorkflow": "Select Workflow *",
+    "selectStep": "Select Step *"
+  },
+  "equipmentSetState": {
+    "equipment": "Equipment",
+    "selectEquipment": "Select Equipment",
+    "status": "Status",
+    "selectStatus": "Select Status",
+    "reason": "Reason",
+    "selectReason": "Select Reason"
+  },
+  "pwa": {
+    "installTitle": "Install OneScan",
+    "installBody": "Install this app for quick, full-screen access.",
+    "installAction": "Install",
+    "installDismiss": "Not now",
+    "installIosHint": "Install OneScan: tap Share, then \"Add to Home Screen\".",
+    "offlineBanner": "You're offline — live data unavailable until you reconnect.",
+    "backOnlineBanner": "Back online."
+  }
+}

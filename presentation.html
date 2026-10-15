@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MES Material Processing Application - Presentation</title>
+  <style>
+    :root {
+      --primary: #1976d2;
+      --primary-dark: #0d47a1;
+      --secondary: #00e5ff;
+      --accent: #fbc02d;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Nav */
+    header {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Deck Container */
+    #deck {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(40px);
+      transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 60px;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    .slide-content {
+      width: 100%;
+      max-width: 1280px;
+      height: 100%;
+      max-height: 820px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+    }
+
+    .slide-title-card {
+      grid-column: 1 / -1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      color: #fff;
+    }
+
+    p.lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    ul.feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    ul.feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+
+    .bullet-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(25, 118, 210, 0.2);
+      border: 1px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #60a5fa;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .img-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #090d16;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 12px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .img-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Bottom Status Bar */
+    footer {
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-container {
+      flex: 1;
+      max-width: 300px;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 0 20px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+      width: 10%;
+      transition: width 0.3s ease;
+    }
+
+    /* Print styles for PDF generation */
+    @media print {
+      body {
+        overflow: visible;
+        height: auto;
+        background: #fff;
+        color: #000;
+      }
+      header, footer, .nav-controls {
+        display: none;
+      }
+      .slide {
+        position: relative;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+        height: 100vh;
+        padding: 20px;
+      }
+      .slide-content {
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        color: #000;
+      }
+      h1, h2 {
+        color: #000 !important;
+        -webkit-text-fill-color: initial !important;
+      }
+      p.lead, ul.feature-list li {
+        color: #333 !important;
+      }
+      .img-container {
+        background: #f8fafc;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Critical Manufacturing MES - Material Processing
+    </div>
+    <div class="nav-controls">
+      <button class="btn" onclick="prevSlide()">&#8592; Previous</button>
+      <button class="btn btn-primary" onclick="nextSlide()">Next &#8594;</button>
+      <button class="btn" onclick="toggleFullScreen()">&#x26F6; Fullscreen</button>
+      <button class="btn" onclick="window.print()">&#128424; Print to PDF</button>
+    </div>
+  </header>
+
+  <div id="deck">
+
+    <!-- Slide 1: Cover -->
+    <section class="slide active">
+      <div class="slide-content slide-title-card">
+        <div class="badge">MES Architecture & Execution Walkthrough</div>
+        <h1>Material Processing Application</h1>
+        <p class="lead" style="max-width: 680px;">
+          An intuitive, touch-first operator interface built on Critical Manufacturing (CMF) MES. Guided execution, real-time validations, and unified step navigation for shop-floor excellence.
+        </p>
+        <div style="display: flex; gap: 12px; margin-top: 15px;">
+          <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">Track-In Data Collection</span>
+          <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Track-Out Checklists</span>
+          <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.3);">Move-Next Completion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: Process Routing Flow Diagram -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Step 1: Process Routing</div>
+          <h2>Interactive Flow Visualization</h2>
+          <p class="lead">Operators have complete visibility of product path and step sequencing directly on the shop floor.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Live Sequence Mapping:</strong> Displays current station (<code>Drum Storage</code>) and subsequent destinations (<code>Drum oven</code> &rarr; <code>Blend Storage</code>).</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Visual Position Badging:</strong> Color-coded borders denote material status, eliminating confusion over routing rules.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Integrated React Flow:</strong> One-tap access from the material header card without navigating away.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837662741.png" alt="Flow Diagram">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Pass-Through Storage Handling -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Step 2: Smart Step Logic</div>
+          <h2>Pass-Through Automation</h2>
+          <p class="lead">Storage buffers and transition steps bypass machine track-in for frictionless movement.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Automatic Detection:</strong> Dynamically reads <code>Step.IsPassThrough === true</code> from CMF metadata.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Bypasses Machine Dispatch:</strong> No resource allocation needed for passive holding areas (<code>Drum Storage</code>).</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Direct Move-Next:</strong> Stepper marks <code>Move-Next</code> active. Single click on Submit immediately advances the material to production.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837665156.png" alt="Pass-Through Storage">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Resource Allocation & Dispatch -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Step 3: Machine Assignment</div>
+          <h2>Queued State & Resource Dispatch</h2>
+          <p class="lead">Materials entering active production steps are gated until equipment is assigned.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Filtered Resource List:</strong> Fetches available idle equipment (e.g., <code>DOVN03</code>) from <code>GetDispatchListForMaterial</code>.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Action Gating:</strong> The Submit button remains disabled until an active resource is selected.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Immediate Dispatch:</strong> Dispatches lot directly to the oven chamber, transitioning state from <code>Queued</code> to <code>Dispatched</code>.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837687736.png" alt="Resource Selection">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Track-In & Pre-Process Data Collection -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Core Concept: Data Collection #1</div>
+          <h2>Track-In Data Collection</h2>
+          <p class="lead">Guarantees all pre-processing parameters are logged before heating or chemical reactions begin.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Why it exists:</strong> Enforces compliance with process recipes (e.g., specifying <code>* Drum Batch</code> and <code>* Oven Side</code>).</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Visual Stepper Cue:</strong> Lights up yellow <strong>Data Collection</strong> indicator preceding Track-In.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Atomic Submission:</strong> Bundles collection points into <code>ComplexTrackInMaterials</code> in a single API roundtrip.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837713511.png" alt="Track In Data Collection">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Dispatched & InProcess Progression -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Step 4: Real-time Execution</div>
+          <h2>Live Machine Tracking</h2>
+          <p class="lead">Clear state indicators keep operators aware of current processing status at all times.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>State Badge:</strong> Reflects <code>Dispatched</code> &rarr; <code>InProcess</code> transitions in real-time.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Assigned Equipment Lock:</strong> Displays active resource <code>DOVN03</code>, primary quantities (<code>977,866 KG</code>), and lot genealogy.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Floating Keypad Integration:</strong> Optional touch keypad allows rapid numeric entry without external hardware.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837705769.png" alt="Dispatched State">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: In-Process & Track-Out Checklist -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Core Concept: Checklist Execution</div>
+          <h2>In-Process Quality Checklist</h2>
+          <p class="lead">Enforces mandatory safety questions and SOP sign-offs prior to machine unloading.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Why it exists:</strong> Validates critical SOP items (e.g., <code>CLInstructions</code>, <code>PASS/FAIL</code>) before Track-Out.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Sequential Ordering Rule:</strong> Automatically sorts and performs items strictly by <code>Order</code> (1, 2, 3), eliminating CMF order faults.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Two-Step Execution:</strong> Dispatches Start (Op 0) followed by Close (Op 3) in safe batches.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837776772.png" alt="Checklist Modal">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Track-Out Completion -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Step 5: Process Completion</div>
+          <h2>Track-Out & State Transition</h2>
+          <p class="lead">Material processing concludes, releasing machine capacity back to the plant.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Instant Feedback:</strong> Toast banner confirms: <em>"Material(s) was/were tracked out successfully."</em></div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>State Updated to Processed:</strong> Universal state reflects <code>Processed</code> (<code>SystemState: 3</code>).</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Prepares Downstream Move:</strong> Stepper marks Track-Out completed and activates final <strong>Move-Next</strong>.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837809912.png" alt="Track-Out Completion">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Move-Next Data Collection -->
+    <section class="slide">
+      <div class="slide-content">
+        <div>
+          <div class="badge">Core Concept: Data Collection #2</div>
+          <h2>Move-Next Data Collection</h2>
+          <p class="lead">Logs final run statistics before routing the lot to the next flow operation.</p>
+          <ul class="feature-list">
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Why it exists:</strong> Captures cumulative cycle metrics (e.g., <code>* PP Time In Oven</code>) required for batch records.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>One-Step Routing:</strong> Clicking <strong>Move Next</strong> validates metrics and issues <code>ComplexMoveMaterialsToNextStep</code>.</div>
+            </li>
+            <li>
+              <div class="bullet-icon">&#10003;</div>
+              <div><strong>Auto-Reset for High Throughput:</strong> Clears the screen and readies the scanner for the next pallet or drum immediately.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="presentation_images/media_1791837819318.png" alt="Move-Next Data Collection">
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div id="slideCounter">Slide 1 of 9</div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+    <div>Use &#8592; and &#8594; arrow keys or buttons to navigate | Press F for Fullscreen</div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const counter = document.getElementById('slideCounter');
+    const progress = document.getElementById('progressBar');
+
+    function updateSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      
+      counter.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+      progress.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        updateSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        updateSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+      }
+    });
+  </script>
+</body>
+</html>

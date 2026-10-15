@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f7fc;
+  color: var(--mes-text);
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  /* Colors */
+  --mes-primary: #2563eb; 
+  --mes-primary-600: #1d4ed8;
+  --mes-secondary: #e2e8f0; 
+  --mes-accent: #f43f5e;
+  --mes-bg-grey: #f1f5f9;
+  --mes-border: #cbd5e1;
+  --mes-text: #0f172a; 
+  --mes-muted: #64748b;
+  --mes-success: #16a34a;
+  --mes-trackin: #0ea5e9;
+  --mes-card-bg: #ffffff; 
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --fs-base: 16px;
+  --fs-sm: 14px;
+  --fs-lg: 18px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --card-shadow: 0 14px 40px rgba(3, 8, 23, 0.6);
+}

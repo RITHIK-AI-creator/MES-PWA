@@ -1,0 +1,174 @@
+{
+  "login": {
+    "title": "ハンドヘルド",
+    "userId": "ユーザーID",
+    "password": "パスワード",
+    "authenticating": "認証中...",
+    "submit": "ログイン"
+  },
+  "header": {
+    "logout": "ログアウト",
+    "signedInAs": "サインイン中",
+    "guest": "ゲスト",
+    "confirmLogout": "ログアウトしてもよろしいですか？"
+  },
+  "common": {
+    "language": "言語",
+    "success": "成功",
+    "error": "エラー",
+    "yes": "はい",
+    "no": "いいえ",
+    "page": "Page "
+  },
+  "track": {
+    "reset": "リセット",
+    "submit": "送信",
+    "moveIn": "搬入",
+    "trackIn": "トラックイン",
+    "trackOut": "トラックアウト",
+    "moveOut": "搬出",
+    "enterLotNumber": "ロット番号を入力 *",
+    "employeeId": "従業員ID",
+    "equipmentName": "設備名",
+    "selectEquipment": "設備を選択 *",
+    "status": "ステータス:",
+    "path": "パス:",
+    "product": "製品:",
+    "priority": "優先度:",
+    "workflow": "ワークフロー:",
+    "qty1": "数量1:",
+    "qty": "数量:",
+    "currentStep": "現在のステップ:",
+    "nextStep": "次のステップ:",
+    "footerText": "先に進むために各ステップを完了してください",
+    "scannedLot": "スキャンされたロット:",
+    "qtyLabel": "数量"
+  },
+  "messages": {
+    "missingCredentials": "ユーザー名とパスワードを入力してください",
+    "accessDenied": "アクセス拒否：認識されないユーザーです。",
+    "serverError": "ログイン中にサーバーエラーが発生しました。",
+    "connectionFailed": "接続に失敗しました：VPNまたはネットワークを確認してください。",
+    "fetchLotFailed": "ロット情報の取得に失敗しました。",
+    "selectEquipment": "設備を選択してください。",
+    "actionFailed": "{{action}}に失敗しました。",
+    "actionFailedRetry": "{{action}}に失敗しました。もう一度お試しください。",
+    "actionSuccess": "ロット「{{lot}}」の{{action}}が正常に完了しました。"
+  },
+  "backend": {
+    "Access Denied: Unrecognized User.": "アクセス拒否：認識されないユーザーです。",
+    "Invalid Password": "無効なパスワードです",
+    "Lot Not Found": "ロットが見つかりません",
+    "Equipment Not Found": "設備が見つかりません",
+    "Transaction Not Allowed": "トランザクションが許可されていません",
+    "Lot is on hold": "ロットは保留中です",
+    "Equipment is down": "設備がダウンしています",
+    "Invalid Employee ID": "無効な従業員IDです"
+  },
+  "cgpw": {
+    "title": "CGPWトランザクション",
+    "receivableProduct": "受領製品",
+    "selectProduct": "-- 製品を選択 --",
+    "toWorkflow": "変更後ワークフロー",
+    "selectWorkflow": "-- ワークフローを選択 --",
+    "toStep": "変更後ステップ",
+    "selectStep": "-- ステップを選択 --",
+    "fetchProductsFailed": "対象製品の取得に失敗しました。",
+    "fetchWorkflowsFailed": "選択した製品のワークフローの取得に失敗しました。",
+    "fetchStepsFailed": "選択したワークフローのステップの取得に失敗しました。",
+    "waferLevelError": "ロット番号 '{{lot}}' はウェハレベルです。",
+    "lotInactive": "'{{lot}}' は非アクティブです。",
+    "fetchLotFailed": "ロット情報の取得に失敗しました。",
+    "scanLotFirst": "最初にロットをスキャンしてください。",
+    "fillRequired": "すべての必須フィールドに入力してください。",
+    "transactionFailed": "CGPWトランザクションが失敗しました。",
+    "transactionSuccess": "ロット {{lot}} のCGPWトランザクションが正常に完了しました。",
+    "transactionFailedRetry": "CGPWトランザクションが失敗しました。再試行してください。"
+  },
+  "recipeSetup": {
+    "equipment": "装置",
+    "mask": "マスク",
+    "selectMask": "-- マスクを選択 --",
+    "recipe": "レシピ",
+    "selectRecipe": "-- レシピを選択 --",
+    "close": "閉じる",
+    "saving": "保存中...",
+    "save": "保存",
+    "setupFailed": "レシピ設定に失敗しました。",
+    "title": "装置設定"
+  },
+  "eProcedure": {
+    "title": "Eプロシージャチェックリスト",
+    "noChecklists": "このステップのチェックリストはありません。",
+    "completeRemaining": "残りの項目を完了してください。",
+    "close": "閉じる",
+    "completeTask": "タスクを完了",
+    "submitting": "送信中...",
+    "eprocTitle": "電子手順"
+  },
+  "rejectLot": {
+    "title": "ロットの不良",
+    "quantity": "数量:",
+    "lossReason": "損失理由:",
+    "selectLossReason": "-- 損失理由を選択 --",
+    "rejectQuantity": "不良数量:",
+    "comment": "コメント:",
+    "close": "閉じる",
+    "rejecting": "処理中...",
+    "submitReject": "不良を送信",
+    "historyNotFound": "ロットの不良履歴が見つかりません。"
+  },
+  "nav": {
+    "WIP Main": "WIPメイン",
+    "Hold": "保留",
+    "Release": "解除",
+    "Split": "分割",
+    "Combine": "結合",
+    "Lot Combine": "ロット結合",
+    "Lot Combine by Wafers": "ウェハーごとのロット結合",
+    "Move to Non-Std": "非標準への移動",
+    "Set Equipment Status": "設備ステータス設定",
+    "CGPW": "CGPW",
+    "SPC Charts": "SPCチャート",
+    "Reject": "リジェクト",
+    "Equipment Materials Setup": "装置構成確認",
+    "WIP Disassociate": "WIP Disassociate",
+    "WIP Associate": "WIP Associate",
+    "Un-Terminate": "Un-Terminate",
+    "Menu": "メニュー",
+    "Lot Bonus": "Lot Bonus",
+    "Lot Reject": "Lot Reject",
+    "Component Remove": "Component Remove"
+  },
+  "combineLot": {
+    "newLotId": "新しいロットID",
+    "lots": "ロット一覧",
+    "lot": "ロット",
+    "qty1": "数量1",
+    "qty2": "数量2",
+    "noSourceLots": "ソースロットが追加されていません。上部でロットをスキャンして追加してください。"
+  },
+  "splitLot": {
+    "splitQty": "分割数量",
+    "enterQty": "数量を入力",
+    "remainingQty": "残数量"
+  },
+  "releaseLot": {
+    "selectReleaseReason": "解除理由を選択 *"
+  },
+  "holdLot": {
+    "selectHoldReason": "保留理由を選択 *"
+  },
+  "moveNonStd": {
+    "selectWorkflow": "ワークフローを選択 *",
+    "selectStep": "ステップを選択 *"
+  },
+  "equipmentSetState": {
+    "equipment": "装置",
+    "selectEquipment": "装置を選択",
+    "status": "ステータス",
+    "selectStatus": "ステータスを選択",
+    "reason": "理由",
+    "selectReason": "理由を選択"
+  }
+}
