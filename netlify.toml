@@ -10,6 +10,12 @@
   # fails here.
   CI = "false"
   NODE_VERSION = "20"
+  # None of these are actual secrets: every REACT_APP_* var is compiled into
+  # the public client bundle by CRA's design, and all of their values are
+  # already duplicated in plain text in public/config.js (which ships in
+  # build/ regardless). The real login credentials never flow through these
+  # build-time vars — see server.js's /local-login handler.
+  SECRETS_SCAN_OMIT_KEYS = "REACT_APP_API_URL,REACT_APP_AUTH_URL,REACT_APP_TENANT_NAME,REACT_APP_CLIENT_ID,REACT_APP_AUTH_STRATEGY,REACT_APP_SESSION_EXPIRY_HOURS,REACT_APP_LOGOUT_URL"
 
 [[redirects]]
   from = "/*"
