@@ -191,8 +191,6 @@
   },
   "pwa": {
     "installTitle": "Install OneScan",
-    "installBody": "Install this app for quick, full-screen access.",
-    "installAction": "Install",
     "installDismiss": "Not now",
     "installIosHint": "Install OneScan: tap Share, then \"Add to Home Screen\".",
     "offlineBanner": "You're offline — live data unavailable until you reconnect.",

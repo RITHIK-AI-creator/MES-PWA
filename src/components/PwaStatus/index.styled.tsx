@@ -42,22 +42,6 @@ export const InstallActions = styled.div`
   flex-shrink: 0;
 `;
 
-export const InstallButton = styled.button`
-  background: var(--mes-primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 7px 14px;
-  font-weight: 700;
-  font-size: 0.82rem;
-  cursor: pointer;
-  transition: background 0.15s ease;
-
-  &:hover {
-    background: var(--mes-primary-600);
-  }
-`;
-
 export const InstallDismiss = styled.button`
   background: transparent;
   border: none;
